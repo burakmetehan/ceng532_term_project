@@ -10,9 +10,9 @@ sys.path.insert(0, os.path.abspath('.'))
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = 'Distributed Algorithm on AHCv2: distalgname'
-copyright = '2024, Your Name'
-author = 'Your Name'
+project = 'Distributed Algorithms on AHCv2: Byzantine Failures: Mahaney-Schneider (BFMS) Synchronizer and Mutual Exclusion: Agrawal-El Abbadi Algorithm'
+copyright = '2024, Burak Metehan Tunçel'
+author = 'Burak Metehan Tunçel'
 release = 'V1.0.0'
 version = release
 

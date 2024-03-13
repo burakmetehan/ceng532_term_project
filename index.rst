@@ -1,20 +1,23 @@
-.. A template file distributed algorithm on AHCv2: distalgname documentation master file, created by
+.. A template file distributed algorithm on AHCv2: bfms_synchronizer and meaea_algorithm documentation master file, created by
    sphinx-quickstart on Fri Feb  2 13:13:10 2024.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-.. include:: docs/distalgname/substitutions.rst
+.. include:: docs/bfms_synchronizer/substitutions.rst
+.. include:: docs/meaea_algorithm/substitutions.rst
 
-|DistAlgName|
+|bfms_synchronizer| and |meaea_algorithm|
 =======================================================================================
 
 .. toctree::
    :maxdepth: 2
    :caption: Contents
 
-   docs/distalgname/distalgname
+   docs/bfms_synchronizer/bfms_synchronizer
+   docs/meaea_algorithm/meaea_algorithm
    docs/rubric
-   docs/distalgname/code
+   docs/bfms_synchronizer/code
+   docs/meaea_algorithm/code
 
 .. ATTENTION::
    For RST details, please refer to `reStructuredText Documentation <https://docutils.sourceforge.io/rst.html>`_.

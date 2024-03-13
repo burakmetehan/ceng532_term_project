@@ -1,0 +1,3 @@
+## Byzantine Failures: Mahaney-Schneider Synchronizer
+
+Develop your distributed algorithm here...
