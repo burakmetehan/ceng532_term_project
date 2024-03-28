@@ -1,0 +1,264 @@
+%\documentclass[10pt,notes]{beamer}       % print frame + notes
+%\documentclass[10pt, notes=only]{beamer}   % only notes
+\documentclass[11pt]{beamer}              % only frames
+
+%%%%%% IF YOU WOULD LIKE TO CREATE LECTURE NOTES COMMENT OUT THE FOlLOWING TWO LINES
+%\usepackage{pgfpages}
+%\setbeameroption{show notes on second screen=bottom} % Both
+
+\usepackage{graphicx}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+\usepackage{color}
+\usetheme{winslab}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+
+
+
+\usepackage{algorithm2e,algorithmicx,algpseudocode}
+\algnewcommand\Input{\item[\textbf{Input:}]}%
+\algnewcommand\Output{\item[\textbf{Output:}]}%
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+
+\algnewcommand{\Implement}[2]{\item[\textbf{Implements:}] #1 \textbf{Instance}: #2}%
+\algnewcommand{\Use}[2]{\item[\textbf{Uses:}] #1 \textbf{Instance}: #2}%
+\algnewcommand{\Trigger}[1]{\Statex{\textbf{Trigger:} (#1)}}%
+\algnewcommand{\Events}[1]{\item[\textbf{Events:}] #1}%
+\algnewcommand{\Need}[1]{\item[\textbf{Needs:}] #1}%
+\algnewcommand{\Event}[2]{\Statex \item[\textbf{On#1:}](#2) \textbf{do}}%
+\algnewcommand{\Trig}[3]{\State \textbf{Trigger}  #1.#2 (#3) }%
+\def\true{\textbf{T}}
+\def\false{\textbf{F}}
+
+
+\author[Burak Metehan Tunçel]{Burak Metehan Tunçel\\\href{mailto:tuncel.burak@metu.edu.tr}{tuncel.burak@metu.edu.tr}}
+%\author[J.\,Doe \& J.\,Doe]
+%{%
+%  \texorpdfstring{
+%    \begin{columns}%[onlytextwidth]
+%      \column{.45\linewidth}
+%      \centering
+%      John Doe\\
+%      \href{mailto:john@example.com}{john@example.com}
+%      \column{.45\linewidth}
+%      \centering
+%      Jane Doe\\
+%      \href{mailto:jane.doe@example.com}{jane.doe@example.com}
+%    \end{columns}
+%  }
+%  {John Doe \& Jane Doe}
+%}
+
+\title[WINS Beamer Template]{Mutual Exclusion in Distributed Systems}
+\subtitle[Short SubTitle]{Balancing Efficiency and Safety in Distributed Systems}
+%\date{} 
+
+\begin{document}
+
+\begin{frame}[plain]
+\titlepage
+\note{In this talk, I will present .... Please answer the following questions:
+\begin{enumerate}
+\item Why are you giving presentation?
+\item What is your desired outcome?
+\item What does the audience already know  about your topic?
+\item What are their interests?
+\item What are key points?
+\end{enumerate}
+}
+\end{frame}
+
+\begin{frame}[label=toc]
+    \frametitle{Outline of the Presentation}
+    \tableofcontents[subsubsectionstyle=hide]
+\note{ The possible outline of a talk can be as follows.
+\begin{enumerate}
+\item Outline 
+\item Problem and background
+\item Design and methods
+\item Major findings
+\item Conclusion and recommendations 
+\end{enumerate} Please select meaningful section headings that represent the content rather than generic terms such as ``the problem''. Employ top-down structure: from general to more specific.
+}
+\end{frame}
+%
+%\part{This the First Part of the Presentation}
+%\begin{frame}
+%        \partpage
+%\end{frame}
+%
+\section{The Problem}
+%\begin{frame}
+%        \sectionpage
+%\end{frame}
+
+\begin{frame}{The problem}
+\framesubtitle{Tell a \alert{STORY} from the background to the conclusion}
+
+\begin{block}{The Problem Name} 
+\begin{itemize}
+  \item Ensuring data consistency and preventing race conditions is crucial. When multiple processes attempt to access and modify shared resources simultaneously, some unpredictable outcomes and data corruption can be experienced.
+  \item Mutual Exclusion (ME) algorithms dictate the order in which processes interact with critical sections.
+  \item By ensuring only one process executes within a critical section at a time, ME algorithms uphold data integrity.
+  \item There is need for a ME algorithm that is deadlock-free, message-efficient.
+\end{itemize}
+\end{block}
+
+\note{}
+\end{frame}
+
+\section{The Contribution}
+\begin{frame}
+\frametitle{What is the solution/contribution}
+\framesubtitle{}
+
+\begin{itemize}
+  \item The realm of Mutual Exclusion (ME) algorithms in distributed systems boasts a rich history.
+  \item Each iteration building upon the strengths and addressing the limitations of its predecessor.
+  \item The Agrawal-El Abbadi algorithm builds upon these existing solutions, aiming to achieve a balance between message complexity and deadlock freedom.
+  \item Introduces the concept of quorums, subsets of processes that must grant permission for a process to enter the critical section.
+  \item Reduces message overhead compared to algorithms requiring communication with all processes.
+\end{itemize}
+
+\end{frame}
+
+
+\section{Motivation/Importance}
+\begin{frame}
+\frametitle{Importance of the Problem}
+\framesubtitle{}
+
+\begin{itemize}
+  \item \textbf{Data Integrity:} Ensures only one process can modify a shared resource at a time, maintaining data accuracy.
+  \item \textbf{Resource Allocation:} Manages limited resources efficiently among processes, avoiding starvation.
+  \item \textbf{Avoiding Deadlocks:} Prevents or resolves deadlock situations, where processes wait indefinitely for resources.
+  \item \textbf{System Reliability:} Contributes to stable system operations by managing access to shared resources.
+\end{itemize}
+
+\end{frame}
+
+\begin{frame}
+\frametitle{Motivation Behind the Agrawal-El Abbadi Algorithm}
+\framesubtitle{}
+
+\begin{itemize}
+  \item \textbf{Efficiency:} Aims to reduce communication overhead, making the system more efficient.
+  \item \textbf{Scalability:} Designed to handle increasing numbers of processes and resources effectively.
+  \item \textbf{Deadlock Prevention:} Focuses on eliminating or easily resolving deadlocks, improving system robustness.
+  \item \textbf{Practicality:} Provides a straightforward and effective approach for real-world application
+\end{itemize}
+
+\end{frame}
+
+
+\section{Background/Model/Definitions/Previous Works}
+
+
+\subsection{Model, Definitions}
+
+\frame{
+\frametitle{Some Terminology}
+
+\begin{itemize}
+  \item \textbf{Mutual Exclusion (ME):} Prevents simultaneous access to a shared resource by multiple processes to avoid data inconsistency.
+  \item \textbf{Critical Section:} A part of the system where access must be exclusive to prevent race conditions.
+  \item \textbf{Message Complexity:} The number of messages needed to perform a task in a distributed system, with a goal to minimize for efficiency.
+  \item \textbf{Deadlocks:} A standstill where processes wait indefinitely for each other to release resources.
+  \item \textbf{Timestamps:} Used to order events or messages in a distributed system, ensuring a consistent sequence.
+  \item \textbf{Quorums:} A selected group of processes whose approval is required for a process to access the critical section, reducing the need for full consensus.
+  \item \textbf{Broadcasts:} Sending a message to all processes in the system, used for consistency but can increase message overhead.
+\end{itemize}
+}
+
+\subsection{Background, Previous Works}
+\begin{frame}{Background}
+
+The journey towards efficient mutual exclusion (ME) in distributed systems has seen significant milestones, each addressing the challenges of maintaining data consistency, reducing message complexity, and preventing deadlocks.
+
+\begin{itemize}
+  \item Lamport's Bakery Algorithm (1978):
+    \begin{itemize}
+      \item \textbf{Overview:} Introduced a ticket-based system where processes obtain numbers to ensure orderly access to the critical section.
+      \item \textbf{Pros:} Simple and easy to implement.
+      \item \textbf{Cons:} High message overhead due to system-wide broadcasts.
+    \end{itemize}
+  
+    \item Ricart-Agrawala Algorithm (1981):
+      \begin{itemize}
+        \item \textbf{Overview:} Utilizes timestamps in request messages, granting access based on the precedence of timestamps.
+        \item \textbf{Pros:} Reduces message complexity compared to Lamport's algorithm.
+        \item \textbf{Cons:} Risk of deadlocks due to potential circular waiting.
+      \end{itemize}
+\end{itemize}
+\end{frame}
+
+\subsection{Background, Previous Works}
+\begin{frame}{Background}
+
+  \begin{itemize}
+    \item Maekawa's Voting Algorithm (1985):
+      \begin{itemize}
+        \item \textbf{Overview:} Implements a voting mechanism among processes, allowing entry to the critical section through a virtual election.
+        \item \textbf{Pros:} Eliminates deadlocks.
+        \item \textbf{Cons:} Can result in high message overhead in larger systems.
+      \end{itemize}
+    
+    \item Towards the Agrawal-El Abbadi Algorithm:
+      \begin{itemize}
+        \item Building on these foundational works, the Agrawal-El Abbadi algorithm introduces quorums -specific subsets of processes- to grant access to the critical section, aiming for an optimal balance between message efficiency and deadlock prevention.
+      \end{itemize}
+  \end{itemize}
+\end{frame}
+
+
+
+\section{Contribution}
+\subsection{Main Point 1}
+\begin{frame}{Main Point 1: A Figure}
+\framesubtitle{Abstract the Major Results}
+
+TODO: Complete after code implementation and experiments.
+
+\end{frame}
+
+
+\section{Experimental results/Proofs}
+
+\subsection{Main Result 1}
+\begin{frame}
+\frametitle{Main Result 1}
+\framesubtitle{}
+
+TODO: Complete after code implementation and experiments.
+
+\end{frame}
+
+
+\section{Conclusions}
+\begin{frame}
+\frametitle{Conclusions}
+\framesubtitle{}
+
+TODO: Complete after code implementation and experiments.
+
+\end{frame}
+
+\section*{References}
+\begin{frame}{References}
+\tiny
+\bibliographystyle{IEEEtran}
+\bibliography{refs}
+\end{frame}
+
+
+
+\thankslide
+
+
+
+
+\end{document}
