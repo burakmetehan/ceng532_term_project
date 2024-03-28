@@ -1,0 +1,232 @@
+%\documentclass[10pt,notes]{beamer}       % print frame + notes
+%\documentclass[10pt, notes=only]{beamer}   % only notes
+\documentclass[11pt]{beamer}              % only frames
+
+%%%%%% IF YOU WOULD LIKE TO CREATE LECTURE NOTES COMMENT OUT THE FOlLOWING TWO LINES
+%\usepackage{pgfpages}
+%\setbeameroption{show notes on second screen=bottom} % Both
+
+\usepackage{graphicx}
+\DeclareGraphicsExtensions{.pdf,.png,.jpg}
+\usepackage{color}
+\usetheme{winslab}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+
+
+
+
+\usepackage{algorithm2e,algorithmicx,algpseudocode}
+\algnewcommand\Input{\item[\textbf{Input:}]}%
+\algnewcommand\Output{\item[\textbf{Output:}]}%
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+
+\algnewcommand{\Implement}[2]{\item[\textbf{Implements:}] #1 \textbf{Instance}: #2}%
+\algnewcommand{\Use}[2]{\item[\textbf{Uses:}] #1 \textbf{Instance}: #2}%
+\algnewcommand{\Trigger}[1]{\Statex{\textbf{Trigger:} (#1)}}%
+\algnewcommand{\Events}[1]{\item[\textbf{Events:}] #1}%
+\algnewcommand{\Need}[1]{\item[\textbf{Needs:}] #1}%
+\algnewcommand{\Event}[2]{\Statex \item[\textbf{On#1:}](#2) \textbf{do}}%
+\algnewcommand{\Trig}[3]{\State \textbf{Trigger}  #1.#2 (#3) }%
+\def\true{\textbf{T}}
+\def\false{\textbf{F}}
+
+
+\author[Burak Metehan Tunçel]{Burak Metehan Tunçel\\\href{mailto:tuncel.burak@metu.edu.tr}{tuncel.burak@metu.edu.tr}}
+%\author[J.\,Doe \& J.\,Doe]
+%{%
+%  \texorpdfstring{
+%    \begin{columns}%[onlytextwidth]
+%      \column{.45\linewidth}
+%      \centering
+%      John Doe\\
+%      \href{mailto:john@example.com}{john@example.com}
+%      \column{.45\linewidth}
+%      \centering
+%      Jane Doe\\
+%      \href{mailto:jane.doe@example.com}{jane.doe@example.com}
+%    \end{columns}
+%  }
+%  {John Doe \& Jane Doe}
+%}
+
+\title[WINS Beamer Template]{Byzantine Failures}
+\subtitle[Short SubTitle]{Trust and Resilience in Distributed Systems}
+%\date{} 
+
+\begin{document}
+
+\begin{frame}[plain]
+\titlepage
+\note{In this talk, I will present .... Please answer the following questions:
+\begin{enumerate}
+\item Why are you giving presentation?
+\item What is your desired outcome?
+\item What does the audience already know  about your topic?
+\item What are their interests?
+\item What are key points?
+\end{enumerate}
+}
+\end{frame}
+
+\begin{frame}[label=toc]
+    \frametitle{Outline of the Presentation}
+    \tableofcontents[subsubsectionstyle=hide]
+\note{ The possible outline of a talk can be as follows.
+\begin{enumerate}
+\item Outline 
+\item Problem and background
+\item Design and methods
+\item Major findings
+\item Conclusion and recommendations 
+\end{enumerate} Please select meaningful section headings that represent the content rather than generic terms such as ``the problem''. Employ top-down structure: from general to more specific.
+}
+\end{frame}
+%
+%\part{This the First Part of the Presentation}
+%\begin{frame}
+%        \partpage
+%\end{frame}
+%
+\section{The Problem}
+%\begin{frame}
+%        \sectionpage
+%\end{frame}
+
+\begin{frame}{Clock Synchronization}
+\framesubtitle{}
+\begin{block}{Clock Synchronization in Distributed Systems} 
+
+Ensuring accurate and consistent timekeeping across geographically distributed systems is fundamental for coordinated operation. Traditional clock synchronization algorithms assume processes behave correctly and exchange reliable information; however, real-world systems are not immune to failures. In some scenarios, processes may exhibit malicious or arbitrary behavior.
+
+Therefore, developing robust clock synchronization algorithms that can tolerate these failures is crucial for ensuring the reliability and integrity of distributed systems.
+\end{block}
+
+\note{}
+\end{frame}
+
+\section{The Contribution}
+\begin{frame}
+\frametitle{What is the solution/contribution}
+\framesubtitle{}
+\begin{itemize}
+  \item Robust clock synchronization algorithms tolerating Byzantine failures, which exhibit malicious or arbitrary behavior, is crucial.
+  \item \textbf{The Mahaney-Schneider synchronizer} stands out as a practical and efficient solution for achieving this goal.
+  \item Leverageing message exchange and statistical analysis to filter out misleading information.
+  \item Converging towards a reliable estimate of the system time, even in the presence of Byzantine processes.
+\end{itemize}
+\end{frame}
+
+
+\section{Motivation/Importance}
+\begin{frame}
+\frametitle{Motivation/Importance}
+\framesubtitle{}
+
+\begin{itemize}
+  \item \textbf{Trust in Decentralized Systems:} BFT is essential for establishing trust in decentralized systems like blockchain, ensuring operations continue even when some participants are unreliable.
+  \item \textbf{Real-World Applications:} It's crucial for safety in critical applications such as aviation and autonomous vehicles, where failure can have dire consequences.
+  \item \textbf{Philosophical Reflection:} BFT prompts reflection on trust and consensus in systems where misinformation or malice is possible, highlighting its broader implications.
+  \item \textbf{Evolving Distributed Systems:} As these systems grow in scale and importance, the role of BFT in ensuring resilience against problematic conditions becomes increasingly vital.
+\end{itemize}
+\end{frame}
+
+\section{Background/Model/Definitions/Previous Works}
+
+
+\subsection{Model, Definitions}
+
+\frame{
+\frametitle{Definitions}
+\framesubtitle{}
+\begin{itemize}
+  \item Byzantine failures are the scenarios where processes exhibit arbitrary behavior including sending incorrect information, withholding data, or even actively trying to disrupt the synchronization process.
+  \item Byzantine Fault Tolerance (BFT) is a property of distributed systems that allows them to continue operating correctly even when some of the nodes fail in arbitrary or malicious ways.
+\end{itemize}
+}
+
+\subsection{Background, Previous Works}
+\begin{frame}{Background}
+\begin{itemize}
+  \item Clock synchronization in distributed systems ensures consistent timekeeping across geographically.
+  \item Traditional algorithms assume well-behaved processes such as Lamport's logical clocks and Cristian's algorithm.
+  \item Traditional algorithms fail with Byzantine failures.
+\end{itemize}
+\end{frame}
+
+\subsection{Background, Previous Works}
+\begin{frame}{Background}
+\begin{itemize}
+  \item BFT protocols can tolerate Byzantine failures but are computationally complex and expensive.
+  \item The Mahaney-Schneider synchronizer is a BFT clock synchronization algorithm that is efficient and robust.
+  \item Work even in the presence of Byzantine failures.
+\end{itemize}
+\end{frame}
+
+
+\section{Contribution}
+\subsection{Main Point 1}
+\begin{frame}{Main Point 1}
+\framesubtitle{}
+
+TODO: Complete after code implementation and experiments.
+
+\note{
+}
+\end{frame}
+
+\section{Experimental results/Proofs}
+
+\subsection{Main Result 1}
+\begin{frame}
+\frametitle{Main Result 1}
+\framesubtitle{}
+TODO: Complete after code implementation and experiments.
+\end{frame}
+
+
+\section{Conclusions}
+\begin{frame}
+\frametitle{Conclusions}
+
+TODO: Complete after code implementation.
+
+\end{frame}
+
+\section*{References}
+\begin{frame}{References}
+\tiny
+\bibliographystyle{IEEEtran}
+\bibliography{refs}
+\end{frame}
+
+\begin{frame}{How to prepare the talk?}
+Please read \url{http://larc.unt.edu/ian/pubs/speaker.pdf}
+\begin{itemize}
+\item The Introduction:  Define the Problem,    Motivate the Audience,    Introduce Terminology,    Discuss Earlier Work,    Emphasize the Contributions of your Paper,    Provide a Road-map.
+\item The Body:    Abstract the Major Results, Explain the Significance of the Results, Sketch a Proof of the Crucial Results
+\item Technicalities: Present a Key Lemma, Present it Carefully
+\item The Conclusion: Hindsight is Clearer than Foresight, Give Open Problems, Indicate that your Talk is Over
+\end{itemize}
+
+\note{
+\begin{itemize}
+\item The Introduction:  Define the Problem,    Motivate the Audience,    Introduce Terminology,    Discuss Earlier Work,    Emphasize the Contributions of your Paper,    Provide a Road-map.
+\item The Body:    Abstract the Major Results, Explain the Significance of the Results, Sketch a Proof of the Crucial Results
+\item Technicalities: Present a Key Lemma, Present it Carefully
+\item The Conclusion: Hindsight is Clearer than Foresight, Give Open Problems, Indicate that your Talk is Over 
+\end{itemize}
+}
+\end{frame}
+
+
+
+\thankslide
+
+
+
+
+\end{document}
